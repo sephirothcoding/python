@@ -1,73 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Animated PNG</title>
+    <title>Animated Filmstrip</title>
     <style>
-        canvas {
+        img {
             border: 1px solid black;
         }
     </style>
 </head>
 <body>
-    <canvas id="animationCanvas" width="800" height="600"></canvas>
-
-    <script>
-        // Get the canvas element
-        var canvas = document.getElementById('animationCanvas');
-        var context = canvas.getContext('2d');
-
-        // Load PNG images from a directory
-        var imageFiles = [
-            'https://xatimg.com/image/4vKuZdInkxEA.png',
-            'https://xatimg.com/image/4vKuZdInkxEA.png',
-            'https://xatimg.com/image/4vKuZdInkxEA.png'
-            // Add more image file paths as needed
-        ];
-
-        // Create an array to store the loaded images
-        var images = [];
-        var loadedImages = 0;
-
-        // Function to load images
-        function loadImages(callback) {
-            for (var i = 0; i < imageFiles.length; i++) {
-                var image = new Image();
-                image.onload = function () {
-                    loadedImages++;
-                    if (loadedImages === imageFiles.length) {
-                        callback();
-                    }
-                };
-                image.src = imageFiles[i];
-                images.push(image);
-            }
-        }
-
-        // Function to draw the animation
-        function drawAnimation() {
-            var imageIndex = 0;
-
-            // Main animation loop
-            function animate() {
-                // Clear the canvas
-                context.clearRect(0, 0, canvas.width, canvas.height);
-
-                // Draw the current image
-                context.drawImage(images[imageIndex], 0, 0);
-
-                // Increment the image index
-                imageIndex = (imageIndex + 1) % images.length;
-
-                // Request the next animation frame
-                requestAnimationFrame(animate);
-            }
-
-            // Start the animation
-            animate();
-        }
-
-        // Call the loadImages function and start the animation when all images are loaded
-        loadImages(drawAnimation);
-    </script>
+    <img src="data:https://xatimg.com/image/4vKuZdInkxEA.png;base64,R0lGODlhPQBEAPeoAJosM//AwO/AwHVYZ/z595kzAP/s7P8A///////////////////////////////////////////////////////////////yH5BAEKAA8ALAAAAAA9AEQAAAX/4CeOZGmeaKqubEsyVYV1iEWsg+AJUaSqFi7TMfO+X6K2ZcLpvKt7yoqmvW4LrvvMFrO3xJlj82RUgJXrFurMZTzXM5CRsC5kjZT0/nu9n5+PFEFADs=" alt="Animated Filmstrip">
 </body>
 </html>
